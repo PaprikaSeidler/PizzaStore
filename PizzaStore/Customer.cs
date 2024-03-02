@@ -15,6 +15,7 @@ namespace PizzaStore
         private string _address;
         private int _customerNo;
         private static readonly Random random = new Random();
+        private bool _clubMember;
         #endregion
 
         #region constructor
@@ -25,12 +26,9 @@ namespace PizzaStore
             _address = address;
         }
 
-        public Customer(string name, string address, int customerNo)
+        public Customer(string name, string address, bool clubMember) : this(name, address)
         {
-            _name = name;
-            _phoneNo = GenerateRandomPhoneNo();
-            _address = address;
-            _customerNo = customerNo;
+            _clubMember = clubMember;
         }
         #endregion
 
@@ -40,7 +38,6 @@ namespace PizzaStore
             get { return _name; }
         }
 
-
         public string Address
         { 
             get { return _address; }
@@ -49,6 +46,11 @@ namespace PizzaStore
         public int customerNo
         { 
             get { return _customerNo; } 
+        }
+
+        public bool IsClubMember 
+        { 
+            get { return _clubMember; }
         }
         #endregion
 

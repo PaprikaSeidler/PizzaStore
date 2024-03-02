@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,30 +11,31 @@ namespace PizzaStore
     public class Order
     {
         #region instance field
-        public Pizza
+        private Pizza
             _pizza;
 
-        public Customer
+        private Customer
             _customer;
 
         private string _orderNo;
         private string _note;
+        private double _tax;
+        private double _deliveryCost;
+        private bool _takeAway;
         #endregion
 
         #region constructor
-        public Order(Pizza pizza, Customer customer, string orderNo, string note)
+        public Order(Pizza pizza, Customer customer, string orderNo, bool isTakeAway)
         {
             _pizza = pizza;
             _customer = customer;
             _orderNo = orderNo;
-            _note = note;
+            _takeAway = isTakeAway;
+            
         }
-
-        public Order(Pizza pizza, Customer customer, string orderNo)
+        public Order(Pizza pizza, Customer customer, string orderNo, string note, bool isTakeAway) : this(pizza, customer, orderNo, isTakeAway)
         {
-            _pizza = pizza;
-            _customer = customer;
-            _orderNo = orderNo;
+            _note = note;
         }
         #endregion
 
@@ -57,19 +59,50 @@ namespace PizzaStore
         { 
             get { return _note; } 
         }
+
+        public double Tax
+        {
+            get { return _tax = 1.25; }
+        }
+
+        public double DeliveryCost
+        {
+            get { return _deliveryCost = 40; }
+        }
+
+        
+
+        public bool IsTakeAway
+        {
+            get { return _takeAway; }
+        }
+
         #endregion
 
         #region method
         public double CalculateTotalPrice()
         {
-            double Tax = 1.25;
-            double DeliveryCost = 40;
+            double TotalPrice = Pizza.Price * Tax;
 
-            double TotalPrice = (Pizza.Price * Tax) + DeliveryCost;
+            if (IsTakeAway == true && Customer.IsClubMember == true)
+            {
+                double TotalPriceWithDeliveryAndDiscount = (TotalPrice * 0.95) + 40;
+                return TotalPriceWithDeliveryAndDiscount;
+            }
+
+            else if (IsTakeAway == true)
+            { 
+                double TotalPriceWithDelivery = TotalPrice + 40;
+                return TotalPriceWithDelivery;
+            }
+            else if (Customer.IsClubMember == true)
+            {
+                double TotalPriceWithDiscount = TotalPrice * 0.95;
+                return TotalPriceWithDiscount;
+            }
 
             return TotalPrice;
         }
-
 
         public override string ToString()
         {
