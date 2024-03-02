@@ -13,9 +13,8 @@ namespace PizzaStore
         private string _name;
         private string _phoneNo;
         private string _address;
-        private int _customerNo;
+        private bool _clubMember;        
         private static readonly Random random = new Random();
-        private bool _clubMember;
         #endregion
 
         #region constructor
@@ -41,11 +40,6 @@ namespace PizzaStore
         public string Address
         { 
             get { return _address; }
-        }
-
-        public int customerNo
-        { 
-            get { return _customerNo; } 
         }
 
         public bool IsClubMember 
