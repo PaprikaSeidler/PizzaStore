@@ -49,12 +49,14 @@ namespace PizzaStore
         #endregion
 
         #region method        
+        //Generere tilfældigt tlf. nr.
         private string GenerateRandomPhoneNo()
         {
             string PhoneNo = string.Format("{0:00000000}", random.Next(10000000, 99999999));
             return PhoneNo;
         }
 
+        //ToString udskriver navn, adresse og tlf. nr. for Customer
         public override string ToString()
         {
             return $"{Name}, {Address}, +45 {_phoneNo}";

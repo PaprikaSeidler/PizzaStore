@@ -34,6 +34,7 @@ namespace PizzaStore
         #endregion
 
         #region method
+        //ToString udskriver navn og pris for en pizza
         public override string ToString()
         {
             return $"{Name}, {Price} kr.";

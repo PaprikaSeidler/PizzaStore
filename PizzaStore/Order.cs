@@ -70,8 +70,6 @@ namespace PizzaStore
             get { return _deliveryCost = 40; }
         }
 
-        
-
         public bool IsTakeAway
         {
             get { return _takeAway; }
@@ -80,6 +78,7 @@ namespace PizzaStore
         #endregion
 
         #region method
+        //Regner totalprisen for ordren. If og if else laver forskellige udregninger alt efter hvilke conditions der er sande.
         public double CalculateTotalPrice()
         {
             double TotalPrice = Pizza.Price * Tax;
@@ -104,6 +103,7 @@ namespace PizzaStore
             return TotalPrice;
         }
 
+        //ToString udskriver ordre nummer, Tostring fra Customer-klassen og Pizza-klassen samt note til ordre
         public override string ToString()
         {
             return $"Order no.: {OrderNo}\n" +

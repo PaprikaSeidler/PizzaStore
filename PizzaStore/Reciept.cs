@@ -36,10 +36,10 @@ namespace PizzaStore
             get { return _customer; } 
         }
         #endregion
-        
-        
-        #region method
 
+
+        #region method
+        //Udskriver Ordre, deliveryInfo og customerClubInfo. Den udskriver forskellige ting alt efter hvilke conditions er opfyldt.
         public override string ToString() 
         {
             string deliveryInfo = "";
@@ -53,7 +53,6 @@ namespace PizzaStore
             {
                 customerClubInfo = "As a Customer Clubmember you get 5% discount on order.\n";
             }
-
 
             return $"Reciept for order:\n" +
                    $"{Order}\n" +
