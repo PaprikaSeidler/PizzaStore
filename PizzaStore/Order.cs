@@ -5,6 +5,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace PizzaStore
 {
@@ -17,7 +18,7 @@ namespace PizzaStore
         private Customer
             _customer;
 
-        private string _orderNo;
+        private static int _orderNo = 1;
         private string _note;
         private double _tax;
         private double _deliveryCost;
@@ -25,15 +26,17 @@ namespace PizzaStore
         #endregion
 
         #region constructor
-        public Order(Pizza pizza, Customer customer, string orderNo, bool isTakeAway)
+        public Order(Pizza pizza, Customer customer, bool isTakeAway)
+           // public Order(Pizza pizza, Customer customer, string orderNo, bool isTakeAway)
         {
             _pizza = pizza;
             _customer = customer;
-            _orderNo = orderNo;
+            _orderNo = OrderNo();
             _takeAway = isTakeAway;
             
         }
-        public Order(Pizza pizza, Customer customer, string orderNo, string note, bool isTakeAway) : this(pizza, customer, orderNo, isTakeAway)
+        public Order(Pizza pizza, Customer customer, string note, bool isTakeAway) : this(pizza, customer, isTakeAway)
+           // public Order(Pizza pizza, Customer customer, string orderNo, string note, bool isTakeAway) : this(pizza, customer, orderNo, isTakeAway)
         {
             _note = note;
         }
@@ -48,11 +51,6 @@ namespace PizzaStore
         public Customer Customer
         {
             get { return _customer; }
-        }
-
-        public string OrderNo
-        {
-            get { return _orderNo; }
         }
 
         public string Note
@@ -102,11 +100,17 @@ namespace PizzaStore
 
             return TotalPrice;
         }
+        public int OrderNo() 
+        {
+            int OrderNo = _orderNo ++;
+            return OrderNo;
+
+        }
 
         //ToString udskriver ordre nummer, Tostring fra Customer-klassen og Pizza-klassen samt note til ordre
         public override string ToString()
         {
-            return $"Order no.: {OrderNo}\n" +
+            return $"Order no.: {OrderNo()}\n" +
                    $"Customer infomation: {Customer}\n" +
                    $"Pizza ordered: {Pizza}\n" +
                    $"Note to resturant: {Note}";

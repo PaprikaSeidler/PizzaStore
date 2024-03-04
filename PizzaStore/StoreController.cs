@@ -23,9 +23,9 @@ namespace PizzaStore
             Customer customer3 = new Customer("Supernørden Casper", "København", true);
 
             //Oprettelse af order objecter som indeholder pizza og customer
-            Order order1 = new Order(pizza1, customer1, "1", true);
-            Order order2 = new Order(pizza2, customer2, "2", false);
-            Order order3 = new Order(pizza3, customer3, "3", "No tomato", true);
+            Order order1 = new Order(pizza1, customer1, true);
+            Order order2 = new Order(pizza2, customer2, false);
+            Order order3 = new Order(pizza3, customer3, "No tomato", true);
 
             //Oprettelse af reciept objecter som indeholder order og customer
             Reciept reciept1 = new Reciept(order1, customer1);
