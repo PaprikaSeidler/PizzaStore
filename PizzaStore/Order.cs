@@ -100,6 +100,8 @@ namespace PizzaStore
 
             return TotalPrice;
         }
+
+        //Sætter OrderNo +1 hver gang det kaldes.
         public int OrderNo() 
         {
             int OrderNo = _orderNo ++;
@@ -107,7 +109,7 @@ namespace PizzaStore
 
         }
 
-        //ToString udskriver ordre nummer, Tostring fra Customer-klassen og Pizza-klassen samt note til ordre
+        //ToString udskriver ordre nummer, Tostring fra Customer-klassen og Pizza-klassen samt note til ordre.
         public override string ToString()
         {
             return $"Order no.: {OrderNo()}\n" +

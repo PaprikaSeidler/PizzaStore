@@ -11,7 +11,7 @@ namespace PizzaStore
     public class Reciept
     {
         #region instance field
-        private Order
+        private Order 
             _order;
         private Customer 
             _customer;
