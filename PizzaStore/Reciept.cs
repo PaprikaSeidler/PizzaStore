@@ -59,7 +59,7 @@ namespace PizzaStore
                    $"Tax: +25%\n" +
                    $"{deliveryInfo}" +
                    $"{customerClubInfo}" +
-                   $"Total price: {Order.CalculateTotalPrice()}";
+                   $"Total price: {Order.CalculateTotalPrice()} kr.";
         }
         #endregion
     }
