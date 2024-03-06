@@ -102,7 +102,7 @@ namespace PizzaStore
         }
 
         //Sætter OrderNo +1 hver gang det kaldes.
-        public int OrderNo() 
+        public static int OrderNo() 
         {
             int OrderNo = _orderNo ++;
             return OrderNo;
