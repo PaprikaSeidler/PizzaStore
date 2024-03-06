@@ -50,7 +50,7 @@ namespace PizzaStore
 
         #region method        
         //Generere tilfældigt tlf. nr.
-        private string GenerateRandomPhoneNo()
+        private static string GenerateRandomPhoneNo()
         {
             string PhoneNo = string.Format("{0:00000000}", random.Next(10000000, 99999999));
             return PhoneNo;
