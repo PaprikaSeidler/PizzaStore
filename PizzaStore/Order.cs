@@ -84,21 +84,24 @@ namespace PizzaStore
             if (IsTakeAway == true && Customer.IsClubMember == true)
             {
                 double TotalPriceWithDeliveryAndDiscount = (TotalPrice * 0.95) + 40;
-                return TotalPriceWithDeliveryAndDiscount;
+               return Math.Round(TotalPriceWithDeliveryAndDiscount, 2);
+                
             }
 
             else if (IsTakeAway == true)
             { 
                 double TotalPriceWithDelivery = TotalPrice + 40;
-                return TotalPriceWithDelivery;
+               return Math.Round(TotalPriceWithDelivery, 2);
+                 
             }
             else if (Customer.IsClubMember == true)
             {
                 double TotalPriceWithDiscount = TotalPrice * 0.95;
-                return TotalPriceWithDiscount;
+               return Math.Round(TotalPriceWithDiscount, 2);
+                 
             }
-
-            return TotalPrice;
+           return Math.Round(TotalPrice, 2);
+            
         }
 
         //Sætter OrderNo +1 hver gang det kaldes.
