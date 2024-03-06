@@ -33,12 +33,14 @@ namespace PizzaStore
             Reciept reciept3 = new Reciept(order3, customer3);
 
             //Udskrivelse af reciept
+            Console.WriteLine("__________________");
             Console.WriteLine(reciept1);
-            Console.WriteLine();
+            Console.WriteLine("__________________");
             Console.WriteLine(reciept2);
-            Console.WriteLine();
+            Console.WriteLine("__________________");
             Console.WriteLine(reciept3);
-           
+            Console.WriteLine("__________________");
+
         }
     }
 }
